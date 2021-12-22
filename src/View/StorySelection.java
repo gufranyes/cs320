@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class StorySelection extends JLabel{
+public class StorySelection extends JLabel {
     private JButton sto1;
     private JLabel sto1txt;
     private JPanel sto1Panel;
@@ -41,7 +41,7 @@ public class StorySelection extends JLabel{
     private JPanel sto9Panel;
 
     public StorySelection() {
-        this.setLayout(new GridLayout(3,3));
+        this.setLayout(new GridLayout(3, 3));
 
         sto1 = new JButton("Illegal Arena");
         sto2 = new JButton("Dwarven Blood Feud");
@@ -62,6 +62,25 @@ public class StorySelection extends JLabel{
         sto7txt = new JLabel("PLACEHOLDER");
         sto8txt = new JLabel("PLACEHOLDER");
         sto9txt = new JLabel("Your Custom Story");
+
+        sto1Panel = new JPanel();
+        sto1Panel.setLayout(new GridLayout(2, 1));
+        sto2Panel = new JPanel();
+        sto2Panel.setLayout(new GridLayout(2, 1));
+        sto3Panel = new JPanel();
+        sto3Panel.setLayout(new GridLayout(2, 1));
+        sto4Panel = new JPanel();
+        sto4Panel.setLayout(new GridLayout(2, 1));
+        sto5Panel = new JPanel();
+        sto5Panel.setLayout(new GridLayout(2, 1));
+        sto6Panel = new JPanel();
+        sto6Panel.setLayout(new GridLayout(2, 1));
+        sto7Panel = new JPanel();
+        sto7Panel.setLayout(new GridLayout(2, 1));
+        sto8Panel = new JPanel();
+        sto8Panel.setLayout(new GridLayout(2, 1));
+        sto9Panel = new JPanel();
+        sto9Panel.setLayout(new GridLayout(2, 1));
 
         sto1Panel.add(sto1txt);
         sto1Panel.add(sto1);
