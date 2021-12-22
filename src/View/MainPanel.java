@@ -51,11 +51,11 @@ public class MainPanel extends JPanel{
 
         nextButton = new JButton("Next");
 
-        topPanel.add(opt1);
-        topPanel.add(opt2);
-        topPanel.add(opt3);
-        topPanel.add(leave);
-        topPanel.add(nextButton);
+        bottomPanel.add(opt1);
+        bottomPanel.add(opt2);
+        bottomPanel.add(opt3);
+        bottomPanel.add(leave);
+        bottomPanel.add(nextButton);
 
         this.add(topPanel);
         this.add(bottomPanel);

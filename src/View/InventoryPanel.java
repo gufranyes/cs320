@@ -21,8 +21,8 @@ public class InventoryPanel extends JPanel {
 
     public InventoryPanel(Player player) {
         this.player = player;
-        this.getItems();
         inventoryArea = new JTextArea("test\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\n");
+        this.getItems();
         this.setLayout(new GridLayout());
         this.add(inventoryArea);
     }
