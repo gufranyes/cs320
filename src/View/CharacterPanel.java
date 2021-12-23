@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CharacterPanel extends JPanel {
     private JPanel doublePanel;
@@ -25,14 +26,98 @@ public class CharacterPanel extends JPanel {
     private JPanel portraitPanel;
     private JTextArea portrait;
     private JPanel otherPanel;
-    private JPanel skillPoints;
+    private JLabel skillPoints;
     private JLabel classLabel;
     private JLabel raceLabel;
     private JLabel bgLabel;
     private JLabel features;
     private JTextArea featArea;
+    private JPanel statsLabelPanel;
+    private JPanel strPanel;
+    private JPanel dexPanel;
+    private JPanel intelPanel;
+    private JPanel chaPanel;
 
     public CharacterPanel() {
-        // TODO
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        doublePanel = new JPanel();
+        statsPanel = new JPanel();
+        statsLabelPanel = new JPanel();
+        stats = new JLabel("Stats");
+        statsPanel.setLayout(new GridLayout(4,1));
+
+        strPanel = new JPanel();
+        strName = new JLabel("Strength:");
+        strMinus = new JButton("-");
+        str = new JLabel("0");
+        strPlus = new JButton("+");
+
+        dexPanel = new JPanel();
+        dexName = new JLabel("Dexterity:");
+        dexMinus = new JButton("-");
+        dex = new JLabel("0");
+        dexPlus = new JButton("+");
+
+        intelPanel = new JPanel();
+        intelName = new JLabel("Intelligence:");
+        intelMinus = new JButton("-");
+        intel = new JLabel("0");
+        intelPlus = new JButton("+");
+
+        chaPanel = new JPanel();
+        chaName = new JLabel("Charisma:");
+        chaMinus = new JButton("-");
+        cha = new JLabel("0");
+        chaPlus = new JButton("+");
+
+        portraitPanel = new JPanel();
+        portrait = new JTextArea("portrait");
+        otherPanel = new JPanel();
+        otherPanel.setLayout(new BoxLayout(otherPanel, BoxLayout.Y_AXIS));
+        skillPoints = new JLabel("Skill Points:");
+        classLabel = new JLabel("Class:");
+        raceLabel = new JLabel("Race:");
+        bgLabel = new JLabel("Background:");
+        features = new JLabel("Features:");
+        featArea = new JTextArea();
+        featArea.setMaximumSize(new Dimension(500,500));
+
+        statsLabelPanel.add(stats);
+        this.add(statsLabelPanel);
+        strPanel.add(strName);
+        strPanel.add(strMinus);
+        strPanel.add(str);
+        strPanel.add(strPlus);
+        dexPanel.add(dexName);
+        dexPanel.add(dexMinus);
+        dexPanel.add(dex);
+        dexPanel.add(dexPlus);
+        intelPanel.add(intelName);
+        intelPanel.add(intelMinus);
+        intelPanel.add(intel);
+        intelPanel.add(intelPlus);
+        chaPanel.add(chaName);
+        chaPanel.add(chaMinus);
+        chaPanel.add(cha);
+        chaPanel.add(chaPlus);
+        statsPanel.add(strPanel);
+        statsPanel.add(dexPanel);
+        statsPanel.add(intelPanel);
+        statsPanel.add(chaPanel);
+        doublePanel.add(statsPanel);
+
+        portraitPanel.add(portrait);
+        doublePanel.add(portraitPanel);
+
+        this.add(doublePanel);
+
+        otherPanel.add(skillPoints);
+        otherPanel.add(classLabel);
+        otherPanel.add(raceLabel);
+        otherPanel.add(bgLabel);
+        otherPanel.add(features);
+        otherPanel.add(featArea);
+        this.add(otherPanel);
     }
 }
