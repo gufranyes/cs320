@@ -47,11 +47,18 @@ public class CharacterCreation extends JPanel {
     private JPanel dexPanel;
     private JPanel intelPanel;
     private JPanel chaPanel;
+    private JLabel skillPointsLabel;
+    private int skillPoints = 25;
+    private int strPoints = 0;
+    private int dexPoints = 0;
+    private int intelPoints = 0;
+    private int chaPoints = 0;
 
     public CharacterCreation() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         topPanel = new JPanel();
         topPanel.setLayout(new GridLayout(2,1));
+        skillPointsLabel = new JLabel("Skill Points: " + skillPoints);
 
         name = new JTextField("Write your name here.");
         background = new JTextField("Write your background here.");
@@ -104,30 +111,31 @@ public class CharacterCreation extends JPanel {
         racePane.add(halfling);
 
         skillsPane = new JPanel();
-        skillsPane.setLayout(new GridLayout(4,1));
+        skillsPane.setLayout(new GridLayout(5,1));
+        skillsPane.add(skillPointsLabel);
 
         strPanel = new JPanel();
         strName = new JLabel("Strength:");
         strMinus = new JButton("-");
-        str = new JLabel("0");
+        str = new JLabel("" + strPoints);
         strPlus = new JButton("+");
 
         dexPanel = new JPanel();
         dexName = new JLabel("Dexterity:");
         dexMinus = new JButton("-");
-        dex = new JLabel("0");
+        dex = new JLabel("" + dexPoints);
         dexPlus = new JButton("+");
 
         intelPanel = new JPanel();
         intelName = new JLabel("Intelligence:");
         intelMinus = new JButton("-");
-        intel = new JLabel("0");
+        intel = new JLabel("" + intelPoints);
         intelPlus = new JButton("+");
 
         chaPanel = new JPanel();
         chaName = new JLabel("Charisma:");
         chaMinus = new JButton("-");
-        cha = new JLabel("0");
+        cha = new JLabel("" + chaPoints);
         chaPlus = new JButton("+");
 
         strPanel.add(strName);
@@ -161,5 +169,125 @@ public class CharacterCreation extends JPanel {
         this.add(skillsPane);
         this.add(portrait);
         this.add(createChar);
+    }
+
+    public JButton getCreateChar() {
+        return createChar;
+    }
+
+    public JLabel getStr() {
+        return str;
+    }
+
+    public JButton getStrMinus() {
+        return strMinus;
+    }
+
+    public JButton getStrPlus() {
+        return strPlus;
+    }
+
+    public JLabel getDex() {
+        return dex;
+    }
+
+    public JButton getDexMinus() {
+        return dexMinus;
+    }
+
+    public JButton getDexPlus() {
+        return dexPlus;
+    }
+
+    public JLabel getIntel() {
+        return intel;
+    }
+
+    public JButton getIntelMinus() {
+        return intelMinus;
+    }
+
+    public JButton getIntelPlus() {
+        return intelPlus;
+    }
+
+    public JLabel getCha() {
+        return cha;
+    }
+
+    public JButton getChaMinus() {
+        return chaMinus;
+    }
+
+    public JButton getChaPlus() {
+        return chaPlus;
+    }
+
+    public String getCharacterName() {
+        return name.getText();
+    }
+
+    public String getCharacterBackground() {
+        return background.getText();
+    }
+
+    public String getFeats() {
+        return feat.getText();
+    }
+
+    public ButtonGroup getClassButtons() {
+        return classButtons;
+    }
+
+    public ButtonGroup getRaceButtons() {
+        return raceButtons;
+    }
+
+    public String getCharacterPortrait() {
+        return portrait.getText();
+    }
+
+    public int getSkillPoints() {
+        return skillPoints;
+    }
+
+    public void setSkillPoints(int skillPoints) {
+        this.skillPoints = skillPoints;
+    }
+
+    public int getStrPoints() {
+        return strPoints;
+    }
+
+    public void setStrPoints(int strPoints) {
+        this.strPoints = strPoints;
+    }
+
+    public int getDexPoints() {
+        return dexPoints;
+    }
+
+    public void setDexPoints(int dexPoints) {
+        this.dexPoints = dexPoints;
+    }
+
+    public int getIntelPoints() {
+        return intelPoints;
+    }
+
+    public void setIntelPoints(int intelPoints) {
+        this.intelPoints = intelPoints;
+    }
+
+    public int getChaPoints() {
+        return chaPoints;
+    }
+
+    public void setChaPoints(int chaPoints) {
+        this.chaPoints = chaPoints;
+    }
+
+    public JLabel getSkillPointsLabel() {
+        return skillPointsLabel;
     }
 }

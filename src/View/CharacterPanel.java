@@ -49,25 +49,25 @@ public class CharacterPanel extends JPanel {
 
         strPanel = new JPanel();
         strName = new JLabel("Strength:");
-        strMinus = new JButton("-");
+        //strMinus = new JButton("-");
         str = new JLabel("0");
         strPlus = new JButton("+");
 
         dexPanel = new JPanel();
         dexName = new JLabel("Dexterity:");
-        dexMinus = new JButton("-");
+        //dexMinus = new JButton("-");
         dex = new JLabel("0");
         dexPlus = new JButton("+");
 
         intelPanel = new JPanel();
         intelName = new JLabel("Intelligence:");
-        intelMinus = new JButton("-");
+        //intelMinus = new JButton("-");
         intel = new JLabel("0");
         intelPlus = new JButton("+");
 
         chaPanel = new JPanel();
         chaName = new JLabel("Charisma:");
-        chaMinus = new JButton("-");
+        //chaMinus = new JButton("-");
         cha = new JLabel("0");
         chaPlus = new JButton("+");
 
@@ -86,19 +86,19 @@ public class CharacterPanel extends JPanel {
         statsLabelPanel.add(stats);
         this.add(statsLabelPanel);
         strPanel.add(strName);
-        strPanel.add(strMinus);
+       // strPanel.add(strMinus);
         strPanel.add(str);
         strPanel.add(strPlus);
         dexPanel.add(dexName);
-        dexPanel.add(dexMinus);
+        //dexPanel.add(dexMinus);
         dexPanel.add(dex);
         dexPanel.add(dexPlus);
         intelPanel.add(intelName);
-        intelPanel.add(intelMinus);
+        //intelPanel.add(intelMinus);
         intelPanel.add(intel);
         intelPanel.add(intelPlus);
         chaPanel.add(chaName);
-        chaPanel.add(chaMinus);
+        //chaPanel.add(chaMinus);
         chaPanel.add(cha);
         chaPanel.add(chaPlus);
         statsPanel.add(strPanel);
@@ -119,5 +119,73 @@ public class CharacterPanel extends JPanel {
         otherPanel.add(features);
         otherPanel.add(featArea);
         this.add(otherPanel);
+    }
+
+    public JLabel getStr() {
+        return str;
+    }
+
+    public JButton getStrPlus() {
+        return strPlus;
+    }
+
+    public JButton getStrMinus() {
+        return strMinus;
+    }
+
+    public JLabel getDex() {
+        return dex;
+    }
+
+    public JButton getDexPlus() {
+        return dexPlus;
+    }
+
+    public JButton getDexMinus() {
+        return dexMinus;
+    }
+
+    public JLabel getIntel() {
+        return intel;
+    }
+
+    public JButton getIntelPlus() {
+        return intelPlus;
+    }
+
+    public JButton getIntelMinus() {
+        return intelMinus;
+    }
+
+    public JLabel getCha() {
+        return cha;
+    }
+
+    public JButton getChaPlus() {
+        return chaPlus;
+    }
+
+    public JButton getChaMinus() {
+        return chaMinus;
+    }
+
+    public JLabel getSkillPoints() {
+        return skillPoints;
+    }
+
+    public JLabel getClassLabel() {
+        return classLabel;
+    }
+
+    public JLabel getRaceLabel() {
+        return raceLabel;
+    }
+
+    public JLabel getBgLabel() {
+        return bgLabel;
+    }
+
+    public JLabel getFeatures() {
+        return features;
     }
 }
