@@ -1,5 +1,7 @@
 package View;
 
+import Controller.MainScreenListener;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,5 +33,9 @@ public class MainScreen extends JDialog {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+
+    public JButton getCreateCharacter() {
+        return createCharacter;
     }
 }

@@ -61,11 +61,35 @@ public class MainPanel extends JPanel{
         this.add(bottomPanel);
     }
 
-    public void setTextArea(JTextArea jTextArea, String text) {
-        jTextArea.setText(text);
+    public JTextArea getStoryText() {
+        return storyText;
     }
 
-    public void setRadioText(JRadioButton jRadioButton, String text) {
-        jRadioButton.setText(text);
+    public JTextArea getPortrait() {
+        return portrait;
+    }
+
+    public ButtonGroup getButtonGroup() {
+        return buttonGroup;
+    }
+
+    public JRadioButton getOpt1() {
+        return opt1;
+    }
+
+    public JRadioButton getOpt2() {
+        return opt2;
+    }
+
+    public JRadioButton getOpt3() {
+        return opt3;
+    }
+
+    public JRadioButton getLeave() {
+        return leave;
+    }
+
+    public JButton getNextButton() {
+        return nextButton;
     }
 }
