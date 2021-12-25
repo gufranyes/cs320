@@ -16,6 +16,7 @@ public class StoryCreation extends JPanel {
     private JTextField opt3;
     private int opt3ID;
     private JButton eventSubmit;
+    private JButton goBack;
 
     public Story getStory() {
         return story;
@@ -28,6 +29,7 @@ public class StoryCreation extends JPanel {
 
         eventText = new JTextArea("You can write your event text here.");
         opt1 = new JTextField("You can write the text for option 1.");
+
         opt1ID = eventID + 1;
         opt2 = new JTextField("You can write the text for option 2.");
         opt2ID = eventID + 2;

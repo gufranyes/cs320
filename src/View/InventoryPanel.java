@@ -8,9 +8,8 @@ import java.util.ArrayList;
 
 public class InventoryPanel extends JPanel {
     private JTextArea inventoryArea;
-    private Player player;
 
-    public void getItems() {
+    public void getItems(Player player) {
         ArrayList<Item> inventory = player.getInventory();
         inventoryArea.setText("");
 
@@ -19,10 +18,8 @@ public class InventoryPanel extends JPanel {
         }
     }
 
-    public InventoryPanel(Player player) {
-        this.player = player;
+    public InventoryPanel() {
         inventoryArea = new JTextArea("test\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\n");
-        this.getItems();
         this.setLayout(new GridLayout());
         this.add(inventoryArea);
     }

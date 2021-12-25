@@ -40,6 +40,8 @@ public class StorySelection extends JLabel {
     private JLabel sto9txt;
     private JPanel sto9Panel;
 
+    private boolean createdStory = false;
+
     public StorySelection() {
         this.setLayout(new GridLayout(3, 3));
 
@@ -117,5 +119,49 @@ public class StorySelection extends JLabel {
         sto9Panel.add(sto9txt);
         sto9Panel.add(sto9);
         this.add(sto9Panel);
+    }
+
+    public boolean isCreatedStory() {
+        return createdStory;
+    }
+
+    public void setCreatedStory(boolean createdStory) {
+        this.createdStory = createdStory;
+    }
+
+    public JButton getSto1() {
+        return sto1;
+    }
+
+    public JButton getSto2() {
+        return sto2;
+    }
+
+    public JButton getSto3() {
+        return sto3;
+    }
+
+    public JButton getSto4() {
+        return sto4;
+    }
+
+    public JButton getSto5() {
+        return sto5;
+    }
+
+    public JButton getSto6() {
+        return sto6;
+    }
+
+    public JButton getSto7() {
+        return sto7;
+    }
+
+    public JButton getSto8() {
+        return sto8;
+    }
+
+    public JButton getSto9() {
+        return sto9;
     }
 }
