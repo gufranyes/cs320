@@ -91,6 +91,8 @@ public class Actor {
         return race;
     }
 
+    public ArrayList<Item> getInventory() {return inventory;}
+
     public ArrayList<String> getFeats() {
         return feats;
     }

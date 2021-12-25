@@ -25,4 +25,11 @@ public class Player extends Actor{
         this.Class = "Fighter";
     }
 
+    public int getSkillPoints() {
+        return skillPoints;
+    }
+
+    public String getCharacterClass() {
+        return Class;
+    }
 }
