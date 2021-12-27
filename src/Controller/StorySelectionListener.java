@@ -33,35 +33,33 @@ public class StorySelectionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (type) {
-            case 1 -> {
+            case 1:
                 storyController.setStory(new TestStory(storyController.player));
 
-                Event firstEvent = storyController.story.getEvents().get(0);
-                storyController.setCurrentEvent(firstEvent);
+                operate();
 
-                storyController.mainPanel.getStoryText().setText(firstEvent.getName());
-                storyController.mainPanel.getOpt1().setText(firstEvent.getNextEvent1Str());
-                storyController.mainPanel.getOpt2().setText(firstEvent.getNextEvent2Str());
-                storyController.mainPanel.getOpt3().setText(firstEvent.getNextEvent3Str());
-
-                storyController.inventoryPanel.getItems(storyController.player);
-                storyController.characterPanel.getStr().setText("" + storyController.player.getSTR());
-                storyController.characterPanel.getDex().setText("" + storyController.player.getDEX());
-                storyController.characterPanel.getIntel().setText("" + storyController.player.getINT());
-                storyController.characterPanel.getCha().setText("" + storyController.player.getCHA());
-                storyController.characterPanel.getSkillPoints().setText("Skill Points: " + storyController.player.getSkillPoints());
-                storyController.characterPanel.getClassLabel().setText("Class: " + storyController.player.getCharacterClass());
-                storyController.characterPanel.getRaceLabel().setText("Race: " + storyController.player.getRace());
-                storyController.characterPanel.getBgLabel().setText("Background: " + storyController.player.getBackground());
-                storyController.characterPanel.getFeatures().setText("Features: " + storyController.player.getFeats());
-            }
-            case 2 -> story = new Story("Dwarven Blood Feud");
-            case 3 -> story = new Story("Honor Purelight");
-            case 4 -> story = new Story("Necromancer's Tower");
-            case 5 -> story = new Story("The Lucky Trader");
-            case 6 -> story = new Story("Pheria");
-            case 7 -> story = new Story("Orcistan");
-            case 8 -> story = new Story("Dawnbringer");
+                break;
+            case 2:
+                story = new Story("Dwarven Blood Feud");
+                break;
+            case 3:
+                story = new Story("Honor Purelight");
+                break;
+            case 4:
+                story = new Story("Necromancer's Tower");
+                break;
+            case 5:
+                story = new Story("The Lucky Trader");
+                break;
+            case 6:
+                story = new Story("Pheria");
+                break;
+            case 7:
+                story = new Story("Orcistan");
+                break;
+            case 8:
+                story = new Story("Dawnbringer");
+                break;
         }
 
         jFrame.remove(storySelection);
@@ -69,14 +67,39 @@ public class StorySelectionListener implements ActionListener {
 
         if (type == 9) {
             if (storySelection.isCreatedStory()) {
-                story = new Story("Custom");
+                storyController.setCurrentEvent(storyController.story.getEvents().get(0));
+                operate();
             } else {
                 jFrame.remove(jTabbedPane);
                 jFrame.add(storyCreation);
             }
         }
-
         jFrame.revalidate();
         jFrame.repaint();
+    }
+
+    public void operate() {
+        Event firstEvent = storyController.story.getEvents().get(0);
+        storyController.setCurrentEvent(firstEvent);
+
+        storyController.mainPanel.getStoryText().setText(firstEvent.getName());
+        storyController.mainPanel.getOpt1().setText(firstEvent.getNextEvent1Str());
+        storyController.mainPanel.getOpt2().setText(firstEvent.getNextEvent2Str());
+        storyController.mainPanel.getOpt3().setText(firstEvent.getNextEvent3Str());
+        storyController.mainPanel.getPortrait().setText(storyController.player.getPortrait());
+
+        storyController.inventoryPanel.getItems(storyController.player);
+        storyController.characterPanel.getStr().setText("" + storyController.player.getSTR());
+        storyController.characterPanel.getDex().setText("" + storyController.player.getDEX());
+        storyController.characterPanel.getIntel().setText("" + storyController.player.getINT());
+        storyController.characterPanel.getCha().setText("" + storyController.player.getCHA());
+        storyController.characterPanel.getHealth().setText("Health: " + storyController.player.getHealth());
+        storyController.characterPanel.getMoney().setText("Money: " + storyController.player.getMoney());
+        storyController.characterPanel.getSkillPoints().setText("Skill Points: " + storyController.player.getSkillPoints());
+        storyController.characterPanel.getClassLabel().setText("Class: " + storyController.player.getCharacterClass());
+        storyController.characterPanel.getRaceLabel().setText("Race: " + storyController.player.getRace());
+        storyController.characterPanel.getBgLabel().setText("Background: " + storyController.player.getBackground());
+        storyController.characterPanel.getFeatures().setText("Features: " + storyController.player.getFeats());
+        storyController.characterPanel.getPortrait().setText(storyController.player.getPortrait());
     }
 }
