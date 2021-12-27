@@ -59,6 +59,20 @@ public class Actor {
         this.feats = new ArrayList<>();
     }
 
+    public Actor(int health) {
+        this.name = "Default Name, SHOULD NOT APPEAR";
+        this.health = health;
+        this.background = "Default Background, SHOULD NOT APPEAR";
+        this.strength = 0;
+        this.dexterity = 0;
+        this.intelligence = 0;
+        this.charisma = 0;
+        this.race = "Default Race, SHOULD NOT APPEAR";
+        this.money = 0;
+        this.inventory = new ArrayList<>();
+        this.feats = new ArrayList<>();
+    }
+
     public String getName() {
         return name;
     }
@@ -121,35 +135,58 @@ public class Actor {
         this.health = health;
     }
 
-    public void fight(Actor actor) {
-        Random rng = new Random();
-        int weaponDamage = 0;
-        for (Item i : inventory) {
-            if (i.getType().equals("Weapon")) weaponDamage = i.getDamage();
-        }
-
-        int enemyArmor = 0;
-        for (Item i : actor.inventory) {
-            if (i.getType().equals("Armor")) enemyArmor = i.getArmor();
-        }
-
-        int bonus = this.getSTR();
-
-        if (this.getDEX() > bonus) bonus = this.getDEX();
-        if (this.getINT() > bonus) bonus = this.getINT();
-        bonus = bonus / 4;
-
-        int damage = (rng.nextInt(20) + 1) + bonus + weaponDamage - enemyArmor;
-
-        actor.setHealth(actor.getHealth() - damage);
+    public int getMoney() {
+        return money;
     }
 
-
-    // I'm not sure about what to do here
-    public void trade(Actor actor, Item item) {
+    public int fight(Actor actor) {
         Random rng = new Random();
 
+        int bonus = rng.nextInt(20) + 1;
 
+        if (this.getClass().equals("Fighter") || this.getClass().equals("Paladin")) {
+            bonus += (this.getSTR() / 4);
+        }
+        else if (this.getClass().equals("Mage") || this.getClass().equals("Druid")) {
+            bonus += (this.getINT() / 4);
+        }
+        else if (this.getClass().equals("Rogue") || this.getClass().equals("Ranger")) {
+            bonus += (this.getDEX() / 4);
+        }
+
+        for (Item item : this.getInventory()) {
+            if (item.getType().equals("Weapon")) {
+                bonus += item.getDamage();
+            }
+            if (item.getType().equals("Off Hand")) {
+                bonus += item.getDamage() / 2;
+            }
+        }
+
+        for (Item item : actor.getInventory()) {
+            if (item.getType().equals("Armor")) {
+                bonus -= item.getArmor();
+            }
+        }
+
+        return bonus;
+    }
+
+    public int trade() {
+        Random rng = new Random();
+
+        int bonus = rng.nextInt(20) + 1;
+        bonus += this.getCHA();
+
+        for (String s : this.getFeats()) {
+            if (s.equals("Trader")) bonus += 2;
+        }
+
+        return bonus;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
     }
 }
 
