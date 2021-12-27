@@ -1,6 +1,7 @@
 package View;
 
 import Controller.*;
+import Model.Item;
 import Model.Player;
 import Model.Story;
 
@@ -14,17 +15,18 @@ public class GUI {
 
         JFrame jFrame = new JFrame("Pheria: A Miserable Adventure");
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.setSize(750, 900);
+        jFrame.setSize(750, 900); //Default size, it is too big for small laptops
         jFrame.setMinimumSize(new Dimension(750, 900));
-        jFrame.setResizable(false);
+        //jFrame.setResizable(false);
 
         jFrame.pack();
         jFrame.setLocationRelativeTo(null);
 
         MainScreen mainScreen = new MainScreen();
         CharacterCreation characterCreation = new CharacterCreation();
-        StorySelection storySelection = new StorySelection();
         StoryCreation storyCreation = new StoryCreation();
+        StorySelection storySelection = new StorySelection();
+
         JTabbedPane jTabbedPane = new JTabbedPane();
 
         MainPanel mainPanel = new MainPanel();
@@ -35,7 +37,8 @@ public class GUI {
         jTabbedPane.add("Character", characterPanel);
         jTabbedPane.add("Inventory", inventoryPanel);
 
-        StoryController storyController = new StoryController(story, playerController.player, mainPanel, characterPanel, inventoryPanel);
+        StoryController storyController = new StoryController(jFrame, story, playerController.player, mainPanel, characterPanel, inventoryPanel, storySelection, storyCreation);
+
 
         mainScreen.getCreateCharacter().addActionListener(new MainScreenListener(mainScreen, jFrame, characterCreation));
 
@@ -60,5 +63,13 @@ public class GUI {
         storySelection.getSto9().addActionListener(new StorySelectionListener(storySelection, jFrame, jTabbedPane, 9, story, storyCreation, storyController));
 
         mainPanel.getNextButton().addActionListener(new NextButtonListener(storyController));
+
+        characterPanel.getStrPlus().addActionListener(new CharacterPlusButtonListener(storyController, 1));
+        characterPanel.getDexPlus().addActionListener(new CharacterPlusButtonListener(storyController, 2));
+        characterPanel.getIntelPlus().addActionListener(new CharacterPlusButtonListener(storyController, 3));
+        characterPanel.getChaPlus().addActionListener(new CharacterPlusButtonListener(storyController, 4));
+
+        storyCreation.getGoBack().addActionListener(new GoBackButtonListener(storyController));
+        storyCreation.getEventSubmit().addActionListener(new SubmitButtonListener(storyController, storyCreation));
     }
 }

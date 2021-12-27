@@ -4,6 +4,8 @@ import Controller.MainScreenListener;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class MainScreen extends JDialog {
     JLabel welcomeText;
