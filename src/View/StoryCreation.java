@@ -1,47 +1,93 @@
 package View;
 
+import Controller.StoryController;
 import Model.Story;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class StoryCreation extends JPanel {
-    private Story story;
-    private int eventID;
     private JTextArea eventText;
+    private JTextField eventIDfield;
     private JTextField opt1;
-    private int opt1ID;
+    private JTextField opt1IDfield;
+
     private JTextField opt2;
-    private int opt2ID;
+    private JTextField opt2IDfield;
+
     private JTextField opt3;
-    private int opt3ID;
+    private JTextField opt3IDfield;
+
     private JButton eventSubmit;
     private JButton goBack;
 
-    public Story getStory() {
-        return story;
-    }
-
     public StoryCreation() {
-        this.setLayout(new GridLayout(0, 1));
-        story = new Story("Custom Story");
-        eventID = 1;
+        this.setLayout(new GridLayout(0,1));
 
         eventText = new JTextArea("You can write your event text here.");
-        opt1 = new JTextField("You can write the text for option 1.");
+        eventIDfield = new JTextField("You can write the ID of the event here.");
 
-        opt1ID = eventID + 1;
-        opt2 = new JTextField("You can write the text for option 2.");
-        opt2ID = eventID + 2;
-        opt3 = new JTextField("You can write the text for option 3.");
-        opt3ID = eventID + 3;
+        opt1 = new JTextField("You can write the text for option 1 here.");
+        opt1IDfield = new JTextField("You can write the ID of option 1 here.");
+
+        opt2 = new JTextField("You can write the text for option 2 here.");
+        opt2IDfield = new JTextField("You can write the ID of option 2 here.");
+
+        opt3 = new JTextField("You can write the text for option 3 here.");
+        opt3IDfield = new JTextField("You can write the ID of option 3 here.");
 
         eventSubmit = new JButton("Submit");
+        goBack = new JButton("Finish Writing");
 
         this.add(eventText);
+        this.add(eventIDfield);
         this.add(opt1);
+        this.add(opt1IDfield);
         this.add(opt2);
+        this.add(opt2IDfield);
         this.add(opt3);
+        this.add(opt3IDfield);
         this.add(eventSubmit);
+        this.add(goBack);
+    }
+
+    public JButton getGoBack() {
+        return goBack;
+    }
+
+    public JButton getEventSubmit() {
+        return eventSubmit;
+    }
+
+    public JTextArea getEventText() {
+        return eventText;
+    }
+
+    public JTextField getEventIDfield() {
+        return eventIDfield;
+    }
+
+    public JTextField getOpt1() {
+        return opt1;
+    }
+
+    public JTextField getOpt1IDfield() {
+        return opt1IDfield;
+    }
+
+    public JTextField getOpt2() {
+        return opt2;
+    }
+
+    public JTextField getOpt2IDfield() {
+        return opt2IDfield;
+    }
+
+    public JTextField getOpt3() {
+        return opt3;
+    }
+
+    public JTextField getOpt3IDfield() {
+        return opt3IDfield;
     }
 }
