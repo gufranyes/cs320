@@ -31,6 +31,8 @@ public class CharacterPanel extends JPanel {
     private JLabel raceLabel;
     private JLabel bgLabel;
     private JLabel features;
+    private JLabel health;
+    private JLabel money;
     private JTextArea featArea;
     private JPanel statsLabelPanel;
     private JPanel strPanel;
@@ -45,29 +47,29 @@ public class CharacterPanel extends JPanel {
         statsPanel = new JPanel();
         statsLabelPanel = new JPanel();
         stats = new JLabel("Stats");
-        statsPanel.setLayout(new GridLayout(4,1));
+        statsPanel.setLayout(new GridLayout(4, 1));
 
         strPanel = new JPanel();
         strName = new JLabel("Strength:");
-        //strMinus = new JButton("-");
+        // strMinus = new JButton("-");
         str = new JLabel("0");
         strPlus = new JButton("+");
 
         dexPanel = new JPanel();
         dexName = new JLabel("Dexterity:");
-        //dexMinus = new JButton("-");
+        // dexMinus = new JButton("-");
         dex = new JLabel("0");
         dexPlus = new JButton("+");
 
         intelPanel = new JPanel();
         intelName = new JLabel("Intelligence:");
-        //intelMinus = new JButton("-");
+        // intelMinus = new JButton("-");
         intel = new JLabel("0");
         intelPlus = new JButton("+");
 
         chaPanel = new JPanel();
         chaName = new JLabel("Charisma:");
-        //chaMinus = new JButton("-");
+        // chaMinus = new JButton("-");
         cha = new JLabel("0");
         chaPlus = new JButton("+");
 
@@ -80,25 +82,27 @@ public class CharacterPanel extends JPanel {
         raceLabel = new JLabel("Race:");
         bgLabel = new JLabel("Background:");
         features = new JLabel("Features:");
+        health = new JLabel("Health:");
+        money = new JLabel("Money:");
         featArea = new JTextArea();
-        featArea.setMaximumSize(new Dimension(500,500));
+        featArea.setMaximumSize(new Dimension(500, 500));
 
         statsLabelPanel.add(stats);
         this.add(statsLabelPanel);
         strPanel.add(strName);
-       // strPanel.add(strMinus);
+        // strPanel.add(strMinus);
         strPanel.add(str);
         strPanel.add(strPlus);
         dexPanel.add(dexName);
-        //dexPanel.add(dexMinus);
+        // dexPanel.add(dexMinus);
         dexPanel.add(dex);
         dexPanel.add(dexPlus);
         intelPanel.add(intelName);
-        //intelPanel.add(intelMinus);
+        // intelPanel.add(intelMinus);
         intelPanel.add(intel);
         intelPanel.add(intelPlus);
         chaPanel.add(chaName);
-        //chaPanel.add(chaMinus);
+        // chaPanel.add(chaMinus);
         chaPanel.add(cha);
         chaPanel.add(chaPlus);
         statsPanel.add(strPanel);
@@ -112,6 +116,8 @@ public class CharacterPanel extends JPanel {
 
         this.add(doublePanel);
 
+        otherPanel.add(health);
+        otherPanel.add(money);
         otherPanel.add(skillPoints);
         otherPanel.add(classLabel);
         otherPanel.add(raceLabel);
@@ -187,5 +193,17 @@ public class CharacterPanel extends JPanel {
 
     public JLabel getFeatures() {
         return features;
+    }
+
+    public JTextArea getPortrait() {
+        return portrait;
+    }
+
+    public JLabel getHealth() {
+        return health;
+    }
+
+    public JLabel getMoney() {
+        return money;
     }
 }
