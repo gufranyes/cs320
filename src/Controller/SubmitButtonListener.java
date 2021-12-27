@@ -29,7 +29,7 @@ public class SubmitButtonListener implements ActionListener {
         int op3ID = Integer.parseInt(storyCreation.getOpt3IDfield().getText());
 
         storyController.story.addEvent(new Event(
-                storyCreation.getEventText().toString(), eventID, op1ID, op2ID, op3ID,
+                storyCreation.getEventText().getText(), eventID, op1ID, op2ID, op3ID,
                 storyController.player, new Actor(),
                 storyCreation.getOpt1().getText(),
                 storyCreation.getOpt2().getText(),
