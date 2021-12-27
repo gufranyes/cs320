@@ -7,6 +7,7 @@ public class Item {
     private int armor;
     private String special;
     private int price;
+    public int bartered = 0;
 
     public Item(String name, String type, int damage, int armor, String special, int price) {
         this.name = name;
