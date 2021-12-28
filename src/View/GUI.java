@@ -70,6 +70,6 @@ public class GUI {
         characterPanel.getChaPlus().addActionListener(new CharacterPlusButtonListener(storyController, 4));
 
         storyCreation.getGoBack().addActionListener(new GoBackButtonListener(storyController));
-        storyCreation.getEventSubmit().addActionListener(new SubmitButtonListener(storyController, storyCreation));
+        storyCreation.getEventSubmit().addActionListener(new SubmitButtonListener(storyController));
     }
 }

@@ -1,53 +1,54 @@
 package View;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class StorySelection extends JLabel {
+public class StorySelection extends JLabel{
     private JButton sto1;
-    private JLabel sto1txt;
+    private JTextArea sto1txt;
     private JPanel sto1Panel;
 
     private JButton sto2;
-    private JLabel sto2txt;
+    private JTextArea sto2txt;
     private JPanel sto2Panel;
 
     private JButton sto3;
-    private JLabel sto3txt;
+    private JTextArea sto3txt;
     private JPanel sto3Panel;
 
     private JButton sto4;
-    private JLabel sto4txt;
+    private JTextArea sto4txt;
     private JPanel sto4Panel;
 
     private JButton sto5;
-    private JLabel sto5txt;
+    private JTextArea sto5txt;
     private JPanel sto5Panel;
 
     private JButton sto6;
-    private JLabel sto6txt;
+    private JTextArea sto6txt;
     private JPanel sto6Panel;
 
     private JButton sto7;
-    private JLabel sto7txt;
+    private JTextArea sto7txt;
     private JPanel sto7Panel;
 
     private JButton sto8;
-    private JLabel sto8txt;
+    private JTextArea sto8txt;
     private JPanel sto8Panel;
 
     private JButton sto9;
-    private JLabel sto9txt;
+    private JTextArea sto9txt;
     private JPanel sto9Panel;
 
     private boolean createdStory = false;
 
     public StorySelection() {
-        this.setLayout(new GridLayout(3, 3));
+        this.setLayout(new GridLayout(3,3));
 
-        sto1 = new JButton("Illegal Arena");
+        sto1 = new JButton("TEST");
         sto2 = new JButton("Dwarven Blood Feud");
-        sto3 = new JButton("Honor Purelight");
+        sto3 = new JButton("Illegal Arena");
         sto4 = new JButton("Necromancer's Tower");
         sto5 = new JButton("The Lucky Trader");
         sto6 = new JButton("Pheria");
@@ -55,34 +56,54 @@ public class StorySelection extends JLabel {
         sto8 = new JButton("Dawnbringer");
         sto9 = new JButton("Custom");
 
-        sto1txt = new JLabel("PLACEHOLDER");
-        sto2txt = new JLabel("PLACEHOLDER");
-        sto3txt = new JLabel("PLACEHOLDER");
-        sto4txt = new JLabel("PLACEHOLDER");
-        sto5txt = new JLabel("PLACEHOLDER");
-        sto6txt = new JLabel("PLACEHOLDER");
-        sto7txt = new JLabel("PLACEHOLDER");
-        sto8txt = new JLabel("PLACEHOLDER");
-        sto9txt = new JLabel("Your Custom Story");
+        sto1txt = new JTextArea("Choose this story to test all the functionalities.");
+        sto2txt = new JTextArea("The story of a dwarf who brings his vendetta to the council of clans for his relative, whose beard was trimmed by another clan.");
+        sto3txt = new JTextArea("The story of a gladiator whose only cousin remained in his life, dives into troubles because of Saint Lightning and his match-fixing.");
+        sto4txt = new JTextArea("The story of a young mage who is sent to the tower from college for a research mission. But no one knows whether he will survive or not.");
+        sto5txt = new JTextArea("The story of a poor but cunning merchant's struggle to make the right decisions and become a great emperor.");
+        sto6txt = new JTextArea("The story of Pheria, who worked hard for her poor family and won a scholarship from the Trader School, and fell in love with Aemir.");
+        sto7txt = new JTextArea("The war story of the commander who became Gro-Bakr's right-hand man after Chief Gro-bakr, the sole ruler of Orcistan, declared war on the Eastern kingdoms.");
+        sto8txt = new JTextArea("The story of Mario's search for castles after Commander Khan orders the plumber Mario with the task of rescuing Elanor.");
+        sto9txt = new JTextArea("Your Custom Story");
+
+        sto1txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto2txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto3txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto4txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto5txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto6txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto7txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto8txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+        sto9txt.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        sto1txt.setLineWrap(true);
+        sto2txt.setLineWrap(true);
+        sto3txt.setLineWrap(true);
+        sto4txt.setLineWrap(true);
+        sto5txt.setLineWrap(true);
+        sto6txt.setLineWrap(true);
+        sto7txt.setLineWrap(true);
+        sto8txt.setLineWrap(true);
+        sto9txt.setLineWrap(true);
 
         sto1Panel = new JPanel();
-        sto1Panel.setLayout(new GridLayout(2, 1));
+        sto1Panel.setLayout(new GridLayout(2,1));
         sto2Panel = new JPanel();
-        sto2Panel.setLayout(new GridLayout(2, 1));
+        sto2Panel.setLayout(new GridLayout(2,1));
         sto3Panel = new JPanel();
-        sto3Panel.setLayout(new GridLayout(2, 1));
+        sto3Panel.setLayout(new GridLayout(2,1));
         sto4Panel = new JPanel();
-        sto4Panel.setLayout(new GridLayout(2, 1));
+        sto4Panel.setLayout(new GridLayout(2,1));
         sto5Panel = new JPanel();
-        sto5Panel.setLayout(new GridLayout(2, 1));
+        sto5Panel.setLayout(new GridLayout(2,1));
         sto6Panel = new JPanel();
-        sto6Panel.setLayout(new GridLayout(2, 1));
+        sto6Panel.setLayout(new GridLayout(2,1));
         sto7Panel = new JPanel();
-        sto7Panel.setLayout(new GridLayout(2, 1));
+        sto7Panel.setLayout(new GridLayout(2,1));
         sto8Panel = new JPanel();
-        sto8Panel.setLayout(new GridLayout(2, 1));
+        sto8Panel.setLayout(new GridLayout(2,1));
         sto9Panel = new JPanel();
-        sto9Panel.setLayout(new GridLayout(2, 1));
+        sto9Panel.setLayout(new GridLayout(2,1));
 
         sto1Panel.add(sto1txt);
         sto1Panel.add(sto1);

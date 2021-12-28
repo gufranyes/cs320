@@ -5,10 +5,12 @@ import View.CharacterCreation;
 import View.StorySelection;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Objects;
 
 public class CreateCharacterListener implements ActionListener {
     private StoryController storyController;
@@ -35,17 +37,40 @@ public class CreateCharacterListener implements ActionListener {
         for (int i = 0; i < split.length; i++) {
             chosenFeats.add(split[i]);
         }
+        storyController.player.setSkillPoints(currentPanel.getSkillPoints());
 
         storyController.player = new Player(currentPanel.getCharacterName(), 100, currentPanel.getCharacterBackground(),
                 currentPanel.getStrPoints(), currentPanel.getDexPoints(), currentPanel.getIntelPoints(), currentPanel.getChaPoints(),
-                selectedRace, 0, new ArrayList<>(), 0, chosenFeats, selectedClass);
+                selectedRace, 0, new ArrayList<>(), storyController.player.getSkillPoints(), chosenFeats, selectedClass, currentPanel.getCharacterPortrait());
+
+        if (!Objects.isNull(storyController.player.getRace()) && !Objects.isNull(storyController.player.getCharacterClass())) {
+            if (!storyController.player.getRace().equals("Dwarf")) {
+                storyController.storySelection.getSto2().setEnabled(false);
+                storyController.storySelection.getSto2().setBackground(Color.RED);
+            }
+            if (!storyController.player.getRace().equals("Orc")) {
+                storyController.storySelection.getSto7().setEnabled(false);
+                storyController.storySelection.getSto7().setBackground(Color.RED);
+            }
+            if (!storyController.player.getCharacterClass().equals("Paladin")) {
+                storyController.storySelection.getSto8().setEnabled(false);
+                storyController.storySelection.getSto8().setBackground(Color.RED);
+            }
+            if (!storyController.player.getCharacterClass().equals("Mage")) {
+                storyController.storySelection.getSto4().setEnabled(false);
+                storyController.storySelection.getSto4().setBackground(Color.RED);
+            }
+            jFrame.remove(currentPanel);
+            jFrame.add(nextPanel);
+            jFrame.revalidate();
+            jFrame.repaint();
+        }
+        else {
+            JFrame warning = new JFrame();
+            JOptionPane.showMessageDialog(warning, "Please choose a race and class!");
+        }
 
 
-
-        jFrame.remove(currentPanel);
-        jFrame.add(nextPanel);
-        jFrame.revalidate();
-        jFrame.repaint();
     }
 
     private String getSelectedButton(ButtonGroup buttonGroup) {

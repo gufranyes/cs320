@@ -23,6 +23,7 @@ public class CharacterCreation extends JPanel {
     private JRadioButton elf;
     private JRadioButton dwarf;
     private JRadioButton halfling;
+    private JRadioButton orc;
     private ButtonGroup raceButtons;
     private JPanel skillsPane;
     private JLabel strName;
@@ -98,17 +99,20 @@ public class CharacterCreation extends JPanel {
         elf = new JRadioButton("Elf");
         dwarf = new JRadioButton("Dwarf");
         halfling = new JRadioButton("Halfling");
+        orc = new JRadioButton("Orc");
         raceButtons = new ButtonGroup();
 
         raceButtons.add(human);
         raceButtons.add(elf);
         raceButtons.add(dwarf);
         raceButtons.add(halfling);
+        raceButtons.add(orc);
 
         racePane.add(human);
         racePane.add(elf);
         racePane.add(dwarf);
         racePane.add(halfling);
+        racePane.add(orc);
 
         skillsPane = new JPanel();
         skillsPane.setLayout(new GridLayout(5,1));

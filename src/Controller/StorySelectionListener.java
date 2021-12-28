@@ -2,6 +2,8 @@ package Controller;
 
 import Model.Event;
 import Model.Item;
+import Model.Stories.IllegalArena;
+import Model.Stories.Pheria;
 import Model.Stories.TestStory;
 import Model.Story;
 import View.StoryCreation;
@@ -35,7 +37,8 @@ public class StorySelectionListener implements ActionListener {
         switch (type) {
             case 1:
                 storyController.setStory(new TestStory(storyController.player));
-
+                Event firstEvent = storyController.story.getEvents().get(0);
+                storyController.setCurrentEvent(firstEvent);
                 operate();
 
                 break;
@@ -43,7 +46,10 @@ public class StorySelectionListener implements ActionListener {
                 story = new Story("Dwarven Blood Feud");
                 break;
             case 3:
-                story = new Story("Honor Purelight");
+                storyController.setStory(new IllegalArena(storyController));
+                storyController.setCurrentEvent(storyController.story.getEvents().get(0));
+                storyController.player.getInventory().add(new Item("Blacksmith's Masterpiece", "Weapon", 3, 0, "", 0));
+                operate();
                 break;
             case 4:
                 story = new Story("Necromancer's Tower");
@@ -52,7 +58,9 @@ public class StorySelectionListener implements ActionListener {
                 story = new Story("The Lucky Trader");
                 break;
             case 6:
-                story = new Story("Pheria");
+                storyController.setStory(new Pheria(storyController));
+                storyController.setCurrentEvent(storyController.story.getEvents().get(0));
+                operate();
                 break;
             case 7:
                 story = new Story("Orcistan");
@@ -79,13 +87,10 @@ public class StorySelectionListener implements ActionListener {
     }
 
     public void operate() {
-        Event firstEvent = storyController.story.getEvents().get(0);
-        storyController.setCurrentEvent(firstEvent);
-
-        storyController.mainPanel.getStoryText().setText(firstEvent.getName());
-        storyController.mainPanel.getOpt1().setText(firstEvent.getNextEvent1Str());
-        storyController.mainPanel.getOpt2().setText(firstEvent.getNextEvent2Str());
-        storyController.mainPanel.getOpt3().setText(firstEvent.getNextEvent3Str());
+        storyController.mainPanel.getStoryText().setText(storyController.currentEvent.getName());
+        storyController.mainPanel.getOpt1().setText(storyController.currentEvent.getNextEvent1Str());
+        storyController.mainPanel.getOpt2().setText(storyController.currentEvent.getNextEvent2Str());
+        storyController.mainPanel.getOpt3().setText(storyController.currentEvent.getNextEvent3Str());
         storyController.mainPanel.getPortrait().setText(storyController.player.getPortrait());
 
         storyController.inventoryPanel.getItems(storyController.player);

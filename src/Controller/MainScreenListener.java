@@ -23,4 +23,3 @@ public class MainScreenListener implements ActionListener {
         currentFrame.dispatchEvent(new WindowEvent(currentFrame, WindowEvent.WINDOW_CLOSING));
     }
 }
-

@@ -23,4 +23,8 @@ public class InventoryPanel extends JPanel {
         this.setLayout(new GridLayout());
         this.add(inventoryArea);
     }
+
+    public JTextArea getInventoryArea() {
+        return inventoryArea;
+    }
 }
